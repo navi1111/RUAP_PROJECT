@@ -30,9 +30,25 @@ namespace RUAP_Project
     }
     class PredictionModel
     {
-        public void startPrediction()
+        private static string[,] inputValues;
+
+        public static string result = "525";
+
+        private static Form1 form;
+        PredictionModel(Form1 form)
         {
-            InvokeRequestResponseService();
+            PredictionModel.form = form;
+        }
+
+        public static void setInputValues (string[,] input)
+        {
+            inputValues = input;
+        }
+
+        public static void startPrediction()
+        {
+            Console.WriteLine("TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ");
+            _ = InvokeRequestResponseService();
         }
         static async Task InvokeRequestResponseService()
         {
@@ -47,7 +63,7 @@ namespace RUAP_Project
                             new StringTable()
                             {
                                 ColumnNames = new string[] {"age", "sex", "cp", "trtbps", "chol", "fbs", "restecg", "thalachh", "exng", "oldpeak", "slp", "caa", "thall", "output"},
-                                Values = new string[,] {  { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" },  { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" },  }
+                                Values = inputValues
                             }
                         },
                     },
@@ -70,10 +86,12 @@ namespace RUAP_Project
                 
                 HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
 
+
                 if (response.IsSuccessStatusCode)
                 {
-                    string result = await response.Content.ReadAsStringAsync();
+                    result = await response.Content.ReadAsStringAsync();
                     Console.WriteLine("Result: {0}", result);
+                    form.setPredictionText(result);
                 }
                 else
                 {
