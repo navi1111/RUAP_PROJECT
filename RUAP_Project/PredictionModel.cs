@@ -32,13 +32,7 @@ namespace RUAP_Project
     {
         private static string[,] inputValues;
 
-        public static string result = "525";
-
-        private static Form1 form;
-        PredictionModel(Form1 form)
-        {
-            PredictionModel.form = form;
-        }
+        public static string result = "455334";
 
         public static void setInputValues (string[,] input)
         {
@@ -47,8 +41,12 @@ namespace RUAP_Project
 
         public static void startPrediction()
         {
-            Console.WriteLine("TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ");
             _ = InvokeRequestResponseService();
+        }
+
+        public string getResult()
+        {
+            return result;
         }
         static async Task InvokeRequestResponseService()
         {
@@ -71,7 +69,7 @@ namespace RUAP_Project
                     {
                     }
                 };
-                const string apiKey = "vmyG6+5nEIIFSkMLHZB5dVaRM4Ye5TeotiEybm2fqQMxWrCe+5AvptP5u7W9DioziZnD8bEDZ9bdchK9oH7EaA=="; // Replace this with the API key for the web service
+                const string apiKey = "vmyG6+5nEIIFSkMLHZB5dVaRM4Ye5TeotiEybm2fqQMxWrCe+5AvptP5u7W9DioziZnD8bEDZ9bdchK9oH7EaA==";
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
                 client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/62e0fb2b58ed44b9a41c96e13c547c99/services/44230f48c5a84075a78c27071ea4a064/execute?api-version=2.0&details=true");
@@ -86,12 +84,10 @@ namespace RUAP_Project
                 
                 HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
 
-
                 if (response.IsSuccessStatusCode)
                 {
                     result = await response.Content.ReadAsStringAsync();
                     Console.WriteLine("Result: {0}", result);
-                    form.setPredictionText(result);
                 }
                 else
                 {

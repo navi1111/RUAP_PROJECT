@@ -23,6 +23,17 @@ namespace RUAP_Project
         public Form1()
         {
             InitializeComponent();
+
+            textBox1.Text = "0";
+            textBox2.Text = "0";
+            textBox3.Text = "0";
+            textBox4.Text = "0";
+            textBox5.Text = "0";
+            textBox6.Text = "0";
+            textBox7.Text = "0";
+            textBox8.Text = "0";
+            textBox9.Text = "0";
+            textBox10.Text = "0";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,7 +52,8 @@ namespace RUAP_Project
                 "" } };
             PredictionModel.setInputValues(inputValues);
             PredictionModel.startPrediction();
-            //Thread.Sleep(3000);
+            Thread.Sleep(2000);
+            this.setPredictionText(PredictionModel.result);
         }
     }
 }
