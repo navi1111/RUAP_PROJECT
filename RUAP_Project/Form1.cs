@@ -72,7 +72,7 @@ namespace RUAP_Project
 
             PredictionModel.setInputValues(inputValues);
             PredictionModel.startPrediction();
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             this.setPredictionText(PredictionModel.result);
         }
     }

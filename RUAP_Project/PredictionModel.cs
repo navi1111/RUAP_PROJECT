@@ -19,6 +19,7 @@ using Newtonsoft.Json.Linq;
 
 
 
+
 /*using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,20 @@ namespace RUAP_Project
         {
             return result;
         }
+
+        public static double parseCalculatedValue(string value)
+        {
+            String[] arr = value.Split('.');
+            if(arr.Length == 1)
+            {
+                return double.Parse(arr[0])*100;
+            }
+            else
+            {
+                return double.Parse(string.Join(",", arr))*100;
+            }
+        }
+
         static async Task InvokeRequestResponseService()
         {
             using (var client = new HttpClient())
@@ -93,7 +108,30 @@ namespace RUAP_Project
                     result = await response.Content.ReadAsStringAsync();
                     //JObject json = JObject.Parse(result);
                     Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(result);
-                    result = myDeserializedClass.Results.output1.value.Values[0].ToString();
+
+
+                    // result = "Your heart attack probability is: " + (double.Parse(myDeserializedClass.Results.output1.value.Values[0][15])).ToString() + "%\n";
+                    double value = PredictionModel.parseCalculatedValue(myDeserializedClass.Results.output1.value.Values[0][15]);
+                    result = "Your heart attack probability is: " + value.ToString() + "%\n";
+                    
+                    //result += double.Parse(myDeserializedClass.Results.output1.value.Values[0][15]) > 50 ? "You have HIGH risk of heart attack." : "You have LOW risk of heart attack.";
+                    if( value < 33)
+                    {
+                        result += "You have LOW risk of heart attack.";
+                    } 
+                    else if (value < 60)
+                    {
+                        result += "You have MEDIUM risk of heart attack.";
+                    }
+                    else if (value < 85)
+                    {
+                        result += "You have HIGH risk of heart attack.";
+                    }
+                    else
+                    {
+                        result += "You have VERY HIGH risk of heart attack.";
+                    }
+
                     Console.WriteLine("Result: {0}", result);
                 }
                 else
