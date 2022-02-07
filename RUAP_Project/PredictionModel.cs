@@ -61,7 +61,7 @@ namespace RUAP_Project
                             new StringTable()
                             {
                                 ColumnNames = new string[] {"age", "sex", "cp", "trtbps", "chol", "fbs", "restecg", "thalachh", "exng", "oldpeak", "slp", "caa", "thall", "output"},
-                                Values = inputValues
+                                Values = new string[,] {  { "0", "0", "0", "0", "0", "0", "0", "0", "0", "5", "0", "0", "0", "0" },  { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" },  }
                             }
                         },
                     },
@@ -81,9 +81,9 @@ namespace RUAP_Project
                 // with the following:
                 //      result = await DoSomeTask().ConfigureAwait(false)
 
-                
-                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-
+                result = "prije response";
+                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest).ConfigureAwait(false);
+                result = "poslije response";
                 if (response.IsSuccessStatusCode)
                 {
                     result = await response.Content.ReadAsStringAsync();
