@@ -8,11 +8,15 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 
 /*using System;
@@ -61,7 +65,7 @@ namespace RUAP_Project
                             new StringTable()
                             {
                                 ColumnNames = new string[] {"age", "sex", "cp", "trtbps", "chol", "fbs", "restecg", "thalachh", "exng", "oldpeak", "slp", "caa", "thall", "output"},
-                                Values = new string[,] {  { "0", "0", "0", "0", "0", "0", "0", "0", "0", "5", "0", "0", "0", "0" },  { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" },  }
+                                Values = inputValues
                             }
                         },
                     },
@@ -87,6 +91,9 @@ namespace RUAP_Project
                 if (response.IsSuccessStatusCode)
                 {
                     result = await response.Content.ReadAsStringAsync();
+                    //JObject json = JObject.Parse(result);
+                    Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(result);
+                    result = myDeserializedClass.Results.output1.value.Values[0].ToString();
                     Console.WriteLine("Result: {0}", result);
                 }
                 else
