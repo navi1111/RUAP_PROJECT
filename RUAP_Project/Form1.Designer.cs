@@ -67,18 +67,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(38, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.Size = new System.Drawing.Size(146, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Gender of the person";
+            this.label2.Text = "Gender (0 = female, 1 = male)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(38, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Chest Pain type";
+            this.label3.Text = "Chest Pain type (0-3)";
             // 
             // label4
             // 
@@ -112,9 +112,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(281, 91);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 13);
+            this.label7.Size = new System.Drawing.Size(199, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Resting electrocardiographic results";
+            this.label7.Text = "Resting electrocardiographic results (0-2)";
             // 
             // label8
             // 
@@ -139,9 +139,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(281, 267);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 13);
+            this.label10.Size = new System.Drawing.Size(111, 13);
             this.label10.TabIndex = 9;
-            this.label10.Text = "Previous peak";
+            this.label10.Text = "Thalassemia rate (0-3)";
             // 
             // textBox1
             // 

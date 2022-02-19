@@ -48,10 +48,10 @@ namespace RUAP_Project
                 textBox7.Text,
                 textBox8.Text,
                 textBox9.Text,
+                "0",
+                "0",
+                "0",
                 textBox10.Text,
-                "0",
-                "0",
-                "0",
                 "0"
                 }, { textBox1.Text,
                 textBox2.Text,
@@ -62,10 +62,10 @@ namespace RUAP_Project
                 textBox7.Text,
                 textBox8.Text,
                 textBox9.Text,
+                "0",
+                "0",
+                "0",
                 textBox10.Text,
-                "0",
-                "0",
-                "0",
                 "0" }, };
 
 
