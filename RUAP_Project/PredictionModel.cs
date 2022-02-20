@@ -82,13 +82,6 @@ namespace RUAP_Project
 
                 client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/62e0fb2b58ed44b9a41c96e13c547c99/services/a5c112d4d3e64c1a99c0e248211bf640/execute?api-version=2.0&details=true");
 
-                // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
-                // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
-                // For instance, replace code such as:
-                //      result = await DoSomeTask()
-                // with the following:
-                //      result = await DoSomeTask().ConfigureAwait(false)
-
                 result = "Please, press the button again";
                 HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest).ConfigureAwait(false);
                 if (response.IsSuccessStatusCode)
@@ -107,7 +100,6 @@ namespace RUAP_Project
                 {
                     Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
                     Console.WriteLine(response.Headers.ToString());
 
                     string responseContent = await response.Content.ReadAsStringAsync();

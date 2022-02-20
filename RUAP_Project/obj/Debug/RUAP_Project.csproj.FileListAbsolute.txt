@@ -26,3 +26,18 @@ C:\Users\Domagoj\Desktop\FERIT\4. Godina\RUAP\RUAP_PROJECT\RUAP_Project\obj\Debu
 C:\Users\Domagoj\Desktop\FERIT\4. Godina\RUAP\RUAP_PROJECT\RUAP_Project\obj\Debug\RUAP_Project.exe
 C:\Users\Domagoj\Desktop\FERIT\4. Godina\RUAP\RUAP_PROJECT\RUAP_Project\obj\Debug\RUAP_Project.pdb
 C:\Users\Domagoj\Desktop\FERIT\4. Godina\RUAP\RUAP_PROJECT\RUAP_Project\obj\Debug\RUAP_Project.Form1.resources
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\bin\Debug\RUAP_Project.exe.config
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\bin\Debug\RUAP_Project.exe
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\bin\Debug\RUAP_Project.pdb
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.csprojAssemblyReference.cache
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.Form1.resources
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.Properties.Resources.resources
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.csproj.GenerateResource.cache
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.csproj.CopyComplete
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.exe
+C:\Users\Korisnik\Desktop\RUAP_PROJECT-main\RUAP_Project\obj\Debug\RUAP_Project.pdb
