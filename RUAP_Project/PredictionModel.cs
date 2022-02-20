@@ -1,6 +1,4 @@
-﻿//api key = vmyG6+5nEIIFSkMLHZB5dVaRM4Ye5TeotiEybm2fqQMxWrCe+5AvptP5u7W9DioziZnD8bEDZ9bdchK9oH7EaA==
-
-// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
+﻿// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
 // Instructions for doing this in Visual Studio:
 // Tools -> Nuget Package Manager -> Package Manager Console
 // Install-Package Microsoft.AspNet.WebApi.Client
@@ -16,15 +14,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
-
-
-
-/*using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 
 namespace RUAP_Project
 {
@@ -88,57 +77,29 @@ namespace RUAP_Project
                     {
                     }
                 };
-                const string apiKey = "vmyG6+5nEIIFSkMLHZB5dVaRM4Ye5TeotiEybm2fqQMxWrCe+5AvptP5u7W9DioziZnD8bEDZ9bdchK9oH7EaA==";
+                const string apiKey = "YZ+9f3KyE4cQXWReyiDzRnN8RcslFTFty/u1KPk8izZVvJRyOtc3BdRicdUDOlZVSBKQxJKoP31j3e4ppoRG/A==";
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
-                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/62e0fb2b58ed44b9a41c96e13c547c99/services/44230f48c5a84075a78c27071ea4a064/execute?api-version=2.0&details=true");
+                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/62e0fb2b58ed44b9a41c96e13c547c99/services/a5c112d4d3e64c1a99c0e248211bf640/execute?api-version=2.0&details=true");
 
-                // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
-                // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
-                // For instance, replace code such as:
-                //      result = await DoSomeTask()
-                // with the following:
-                //      result = await DoSomeTask().ConfigureAwait(false)
-
-                result = "prije response";
+                result = "Please, press the button again";
                 HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest).ConfigureAwait(false);
-                result = "poslije response";
                 if (response.IsSuccessStatusCode)
                 {
                     result = await response.Content.ReadAsStringAsync();
-                    //JObject json = JObject.Parse(result);
                     Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(result);
 
 
-                    // result = "Your heart attack probability is: " + (double.Parse(myDeserializedClass.Results.output1.value.Values[0][15])).ToString() + "%\n";
-                    double value = PredictionModel.parseCalculatedValue(myDeserializedClass.Results.output1.value.Values[0][15]);
-                    result = "Your heart attack probability is: " + value.ToString() + "%\n";
-                    
-                    //result += double.Parse(myDeserializedClass.Results.output1.value.Values[0][15]) > 50 ? "You have HIGH risk of heart attack." : "You have LOW risk of heart attack.";
-                    if( value < 33)
-                    {
-                        result += "You have LOW risk of heart attack.";
-                    } 
-                    else if (value < 60)
-                    {
-                        result += "You have MEDIUM risk of heart attack.";
-                    }
-                    else if (value < 85)
-                    {
-                        result += "You have HIGH risk of heart attack.";
-                    }
-                    else
-                    {
-                        result += "You have VERY HIGH risk of heart attack.";
-                    }
+                    double value = double.Parse(myDeserializedClass.Results.output1.value.Values[0][14]);
+                    double probability = PredictionModel.parseCalculatedValue(myDeserializedClass.Results.output1.value.Values[0][15]);
+                    probability = Math.Round(probability, 2);
 
-                    Console.WriteLine("Result: {0}", result);
+                    result = "You have been classified to have " + (value == 1 ? "HIGHER chances of heart attack " : "LOWER chances of heart attack ") + "with " + probability.ToString() + "% accuracy.\n";
                 }
                 else
                 {
                     Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
                     Console.WriteLine(response.Headers.ToString());
 
                     string responseContent = await response.Content.ReadAsStringAsync();

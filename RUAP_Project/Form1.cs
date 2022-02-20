@@ -34,6 +34,9 @@ namespace RUAP_Project
             textBox8.Text = "0";
             textBox9.Text = "0";
             textBox10.Text = "0";
+            textBox11.Text = "0";
+            textBox12.Text = "0";
+            textBox13.Text = "0";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,11 +51,11 @@ namespace RUAP_Project
                 textBox7.Text,
                 textBox8.Text,
                 textBox9.Text,
+                textBox11.Text,
+                textBox12.Text,
+                textBox13.Text,
                 textBox10.Text,
                 "0",
-                "0",
-                "0",
-                "0"
                 }, { textBox1.Text,
                 textBox2.Text,
                 textBox3.Text,
@@ -62,11 +65,11 @@ namespace RUAP_Project
                 textBox7.Text,
                 textBox8.Text,
                 textBox9.Text,
+                textBox11.Text,
+                textBox12.Text,
+                textBox13.Text,
                 textBox10.Text,
-                "0",
-                "0",
-                "0",
-                "0" }, };
+                "0",}, };
 
 
 
@@ -74,6 +77,11 @@ namespace RUAP_Project
             PredictionModel.startPrediction();
             Thread.Sleep(3000);
             this.setPredictionText(PredictionModel.result);
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
