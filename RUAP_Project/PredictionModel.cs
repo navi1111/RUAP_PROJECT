@@ -91,10 +91,10 @@ namespace RUAP_Project
 
 
                     double value = double.Parse(myDeserializedClass.Results.output1.value.Values[0][14]);
-                    double probability = PredictionModel.parseCalculatedValue(myDeserializedClass.Results.output1.value.Values[0][15]);
-                    probability = Math.Round(probability, 2);
+                    //double probability = PredictionModel.parseCalculatedValue(myDeserializedClass.Results.output1.value.Values[0][15]);
+                    //probability = Math.Round(probability, 2);
 
-                    result = "You have been classified to have " + (value == 1 ? "HIGHER chances of heart attack " : "LOWER chances of heart attack ") + "with " + probability.ToString() + "% accuracy.\n";
+                    result = "You have been classified to have " + (value == 1 ? "HIGHER chances of heart attack " : "LOWER chances of heart attack ") + "\n";
                 }
                 else
                 {
